@@ -1,0 +1,6 @@
+a trial <form> to render a form in a loop (not demonstrated)
+that can modify a variable/db when the selection in a <select> field is
+modified by the user
+
+written in plain HTML + vanilla JS
+translate to framework as required

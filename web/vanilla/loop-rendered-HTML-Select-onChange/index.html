@@ -1,0 +1,64 @@
+<html>
+
+<head>
+	<title>Testing a Form</title>
+	<script>
+		let movieRatings = {}
+		function viewEventTargets(event) {
+			// console.log(event)
+			console.log(event.target.id)
+			console.log(event.target.name)
+			console.log(event.target.value)
+		}
+		function selectChange_v1(event) {
+			movieRatings[event.target.id] =
+				{ rating: event.target.value }
+			console.log(movieRatings)
+		}
+		function selectChange_v2(event) {
+			movieRatings[event.target.id] =
+			{
+				name: event.target.name,
+				rating: event.target.value
+			}
+			console.log(movieRatings)
+			return false
+		}
+	</script>
+</head>
+
+<body>
+	<form>
+		<div align="center">
+			<!--START: THIS IS THE SECTION TO BE LOOPED-->
+			<!--looped as in rendered in a loop by whatever framework-->
+			<label for="Knight and Day">Knight and Day</label>
+			<select name="Knight and Day" id="3814" onChange="selectChange_v2(event)">
+				                           <!-- experiment by changing the function 
+				                                             with one of the others-->
+				<option value="">Rate it</option><br />
+				<option value="1"> 1 </option><br />
+				<option value="2"> 2 </option><br />
+				<option value="3"> 3 </option><br />
+				<option value="4"> 4 </option><br />
+				<option value="5"> 5 </option><br />
+			</select>
+			<!--END: THIS IS THE SECTION TO BE LOOPED-->
+
+			<!--START: THIS SECTION WAS HARD-CODED FOR DEMO-->
+			<label for="Enola Holmes">Enola Holmes</label>
+			<select name="Enola Holmes" id="1924" onChange="selectChange_v2(event)">
+				<option value="">Rate it</option><br />
+				<option value="1"> 1 </option><br />
+				<option value="2"> 2 </option><br />
+				<option value="3"> 3 </option><br />
+				<option value="4"> 4 </option><br />
+				<option value="5"> 5 </option><br />
+			</select>
+			<!--END: THIS SECTION WAS HARD-CODED FOR DEMO-->
+		</div>
+	</form>
+
+</body>
+
+</html>
