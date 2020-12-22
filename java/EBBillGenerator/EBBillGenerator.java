@@ -52,17 +52,20 @@ class Customer {
 	this.currReading = cusCurrReading;
     }
 
+    private static float resolve(float tb){
+	return tb >= 0.0f ? tb : 0.0f;
+    }
     private static float genBillAmt(Customer cus){
 	float uncalculatedUnits = (float)cus.currReading;
 	float billedAmount = 0.0f;
 	ArrayList<CustomerTarrif.TierTarrifRate> tarrif = cus.type.tarrif();
 	for(int tier = 0; uncalculatedUnits > 0; tier++){
-	    float tierUnits = uncalculatedUnits - (tarrif.get(tier).upperLimit - tarrif.get(tier).lowerLimit);
+	    float tierBalance = resolve(uncalculatedUnits - (tarrif.get(tier).upperLimit - tarrif.get(tier).lowerLimit));
+	    float tierUnits = uncalculatedUnits - tierBalance;
 	    billedAmount += tierUnits * tarrif.get(tier).rate;
-	    uncalculatedUnits -= tierUnits;
-	    System.out.println(billedAmount + " @ tier " + tier + " for " +tierUnits+ " units; " + " uncalc remaining: " + uncalculatedUnits);
+	    uncalculatedUnits = tierBalance;
+	    System.out.println("at tier: " + tier + " for " + tierUnits + " with " + uncalculatedUnits + " left");
 	}
-
 	return billedAmount;
     }
     public static void printBill(Customer cus) {
