@@ -64,7 +64,7 @@ class Customer {
 	    float tierUnits = uncalculatedUnits - tierBalance;
 	    billedAmount += tierUnits * tarrif.get(tier).rate;
 	    uncalculatedUnits = tierBalance;
-	    System.out.println("at tier: " + tier + " for " + tierUnits + " with " + uncalculatedUnits + " left");
+	    //System.out.println("at tier: " + tier + " for " + tierUnits + " with " + uncalculatedUnits + " left");
 	}
 	return billedAmount;
     }
