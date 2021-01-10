@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -x
+
+myVar=5
+
+# chain of if-elif statements
+# for checking a case
+
+if [[ $myVar -eq 1 ]]; then
+    echo 1
+elif [[ $myVar -eq 2 ]]; then
+    echo 2
+elif [[ $myVar -eq 3 ]]; then
+    echo 3
+elif [[ $myVar -eq 4 ]]; then
+    echo 4
+elif [[ $myVar -eq 5 ]]; then
+    echo 5
+elif [[ $myVar -eq 6 ]]; then
+    echo 6
+elif [[ $myVar -eq 7 ]]; then
+    echo 7
+elif [[ $myVar -eq 8 ]]; then
+    echo 8
+elif [[ $myVar -eq 9 ]]; then
+    echo 9
+elif [[ $myVar -eq 10 ]]; then
+    echo 10
+fi

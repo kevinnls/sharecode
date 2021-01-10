@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -x
+
+myVar=5
+
+# singular if statements
+# for checking a case
+
+if [[ $myVar -eq 1 ]]; then
+    echo 1
+fi
+if [[ $myVar -eq 2 ]]; then
+    echo 2
+fi
+if [[ $myVar -eq 3 ]]; then
+    echo 3
+fi
+if [[ $myVar -eq 4 ]]; then
+    echo 4
+fi
+if [[ $myVar -eq 5 ]]; then
+    echo 5
+fi
+if [[ $myVar -eq 6 ]]; then
+    echo 6
+fi
+if [[ $myVar -eq 7 ]]; then
+    echo 7
+fi
+if [[ $myVar -eq 8 ]]; then
+    echo 8
+fi
+if [[ $myVar -eq 9 ]]; then
+    echo 9
+fi
+if [[ $myVar -eq 10 ]]; then
+    echo 10
+fi
