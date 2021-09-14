@@ -5,8 +5,8 @@
 int main(int argc, char **argv) {
     if(argc > 1) {
 	int largest = INT_MIN;
-	for (int i = 0 ; i < argc-1 ; i++) {
-	    int num = atoi(argv[i+1]);
+	for (int i = 1 ; i < argc ; i++) {
+	    int num = atoi(argv[i]);
 	    if ( num > largest ) {
 		largest = num;
 	    }
