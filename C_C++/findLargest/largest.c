@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void printArray(int *arr);
-void printArray(int **char);
+void printIntArray(int *arr);
+void printCharArray(char **arr);
 
 int findLargest (int *arr) {
     int aggLarge;
@@ -33,13 +33,13 @@ int main(int argc, char **argv) {
     }
 }
 
-void printArray(int *arr){
+void printIntArray(int *arr){
     int len = sizeof(arr);
     for (int i=0; i<len; i++){
 	printf("%d", arr[i]);
     }
 }
-void printArray(char **arr){
+void printCharArray(char **arr){
     int len = sizeof(arr);
     for (int i=0; i<len; i++){
 	printf("%s", arr[i]);
