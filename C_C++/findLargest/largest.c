@@ -10,10 +10,7 @@ int main(int argc, char **argv)
 		for (int i = 1; i < argc; i++)
 		{
 			int num = atoi(argv[i]);
-			if (num > largest)
-			{
-				largest = num;
-			}
+			largest = num > largest ? num : largest;
 		}
 		printf("%d\n", largest);
 		return 0;
