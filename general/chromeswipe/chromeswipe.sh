@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+set -e
+{
+
+	fname=google-chrome.desktop
+	og_file="/usr/share/applications/${fname}"
+	out_dir="${HOME}/.loca/share/applications/"
+	out_file="${out_dir}/${fname}"
+
+	featname=TouchpadOverscrollHistoryNavigation
+
+	if ! [ -d "${out_dir}" ]; then
+		mkdir -p "${out_dir}"
+	fi
+
+	if grep -oqe "${featname}" "${og_file}" >/dev/null; then
+		echo "feature already enabled at system level"
+		exit 0
+	fi
+
+	if grep -oqe "${featname}" "${out_file}" >/dev/null; then
+		echo "feature already enabled at user level"
+		exit 0
+	fi
+
+	if ! [ -f "${out_file}" ]; then
+		cp -n "${og_file}" "${out_file}"
+	fi
+
+	if ! grep -oqe '--enable-features' "${outfile}" >/dev/null; then
+		sed "s:/usr/bin/google-chrome-stable:/usr/bin/google-chrome-stable --enable-features=${featname}:" \
+			"${og_file}" >${out_file}
+		echo "created destkop file with feature"
+	else
+		sed -E "s:(--enable-features=[^\s]+):\1,TouchpadOverscrollHistoryNavigation:" \
+			"${og_file}" >${out_file}
+		echo "added feature to existing destkop file"
+	fi
+
+}
