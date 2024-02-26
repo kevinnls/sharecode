@@ -28,14 +28,14 @@ set -e
 		cp -n "${og_file}" "${out_file}"
 	fi
 
-	if ! grep -oqe '--enable-features' "${outfile}" >/dev/null; then
-		sed "s:/usr/bin/google-chrome-stable:/usr/bin/google-chrome-stable --enable-features=${featname}:" \
-			"${og_file}" >${out_file}
-		echo "created destkop file with feature"
-	else
+	if grep -oqe '--enable-features' "${outfile}" >/dev/null; then
 		sed -E "s:(--enable-features=[^\s]+):\1,TouchpadOverscrollHistoryNavigation:" \
 			"${og_file}" >${out_file}
 		echo "added feature to existing destkop file"
+	else
+		sed "s:/usr/bin/google-chrome-stable:/usr/bin/google-chrome-stable --enable-features=${featname}:" \
+			"${og_file}" >${out_file}
+		echo "created destkop file with feature"
 	fi
 
 }
