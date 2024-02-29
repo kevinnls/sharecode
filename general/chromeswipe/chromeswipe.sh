@@ -4,6 +4,19 @@ set -e
 {
 
 	fname=google-chrome.desktop
+	[ -n "${1}" ] && case ${1} in
+		stable)
+			fname=google-chrome.desktop
+			;;
+		unstable)
+			fname=google-chrome-unstable.desktop
+			;;
+		*)
+			>&2 echo what variant of Google Chrome is \"$1\"? Dunno. Bye.
+			exit 5
+			;;
+	esac
+
 	og_file="/usr/share/applications/${fname}"
 	out_dir="${HOME}/.local/share/applications"
 	out_file="${out_dir}/${fname}"
