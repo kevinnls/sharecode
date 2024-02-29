@@ -5,7 +5,7 @@ set -e
 
 	fname=google-chrome.desktop
 	og_file="/usr/share/applications/${fname}"
-	out_dir="${HOME}/.loca/share/applications/"
+	out_dir="${HOME}/.local/share/applications"
 	out_file="${out_dir}/${fname}"
 
 	featname=TouchpadOverscrollHistoryNavigation
