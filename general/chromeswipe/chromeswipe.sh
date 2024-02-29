@@ -41,10 +41,10 @@ set -e
 		cp -n "${og_file}" "${out_file}"
 	fi
 
-	if grep -oqe '^Exec\s?=.*--enable-features' "${out_file}" >/dev/null; then
-		SED_EXPR="s:(Exec\\s?=.\\*)(--enable-features=[^ ]+):\\1\\2,${featname}:"
+	if grep -oqe '^Exec ?=.*--enable-features' "${out_file}" >/dev/null; then
+		SED_EXPR="s:(^Exec ?=.*--enable-features=[^ ]+):\\1,${featname}:"
 	else
-		SED_EXPR="s:(^Exec\\s?=\\s?[^ ]+):\\1 --enable-features=${featname}:"
+		SED_EXPR="s:(^Exec ?= ?[^ ]+):\\1 --enable-features=${featname}:"
 	fi
 
 	sed -i.bak -E -e "${SED_EXPR}" "${out_file}"
