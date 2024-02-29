@@ -32,7 +32,7 @@ set -e
 		exit 0
 	fi
 
-	if grep -oqe "${featname}" "${out_file}" >/dev/null; then
+	if { grep -oqe "${featname}" "${out_file}" >/dev/null 2>/dev/null; }; then
 		echo "feature already enabled at user level"
 		exit 0
 	fi
